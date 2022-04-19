@@ -1,0 +1,23 @@
+{
+  "name": "notes-mead",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yugmani/notes-mead.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yugmani/notes-mead/issues"
+  },
+  "homepage": "https://github.com/yugmani/notes-mead#readme",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "validator": "^13.7.0"
+  }
+}
