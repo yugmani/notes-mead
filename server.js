@@ -72,14 +72,43 @@ yargs.version("1.1.0");
 yargs.command({
   command: "add",
   describe: "Add a new note",
-  handler: function () {
-    console.log("Adding a new note");
+  builder: {
+    //added later
+    title: {
+      describe: "Note title",
+      demandOption: true, //false by default
+      type: "string", //boolean by default
+    },
+    //challenge part
+    body: {
+      describe: "Note body",
+      demandOption: true,
+      type: "string",
+    },
+  },
+  handler: function (argv) {
+    // console.log("Adding a new note", argv);
+    console.log("Title: ", argv.title); //being specific to title
+    //challenge part
+    console.log("Body: ", argv.body);
   },
 });
 
 //node server.js add
 //Adding a new note
 // { _: [ 'add' ], '$0': 'server.js' }
+
+//after adding builder
+//node server.js add --title="Shopping list"
+// Adding a new note { _: [ 'add' ], title: 'Shopping list', '$0': 'server.js' }
+// { _: [ 'add' ], title: 'Shopping list', '$0': 'server.js' }
+
+//Output After refactoring handler
+// Title:  Shopping list
+
+//After adding challenge part
+// Title:  Buy
+// Body:  list of things to buy
 
 //create remove command
 yargs.command({
@@ -124,4 +153,6 @@ yargs.command({
 // Reading my note!
 // { _: [ 'read' ], '$0': 'server.js' }
 
-console.log(yargs.argv);
+// console.log(yargs.argv); //logs two times
+//so, instead of logging yargs.argv, we add :
+yargs.parse();
